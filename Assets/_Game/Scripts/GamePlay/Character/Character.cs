@@ -2,31 +2,38 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Character : MonoBehaviour
+public class Character : AbCharacter
 {
-    [SerializeField] protected Transform tf;
     [SerializeField] protected float speed;
-
-    [SerializeField] Animator anim;
-
+    [SerializeField] protected Skin skin;
     private string currentAnim;
 
-    public virtual void OnInit()
+    public override void OnInit()
     {
-        ChangeAnim(Constant.ANIM_IDLE);
     }
 
-    public virtual void OnDespawn()
+    public override void OnDespawn()
     {
+    }
 
+    public override void StopMoving()
+    {
+    }
+
+    public override void OnDeath()
+    {
+    }
+
+    public override void OnAttack()
+    {
     }
     public void ChangeAnim(string animName)
     {
         if(currentAnim!= animName)
         {
-            anim.ResetTrigger(currentAnim);
+            skin.Anim.ResetTrigger(currentAnim);
             currentAnim = animName;
-            anim.SetTrigger(currentAnim);
+            skin.Anim.SetTrigger(currentAnim);
         }
     }
 }

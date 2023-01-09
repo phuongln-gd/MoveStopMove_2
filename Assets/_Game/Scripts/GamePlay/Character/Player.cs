@@ -13,7 +13,7 @@ public class Player : Character
     public override void OnInit()
     {
         base.OnInit();
-        isMoving = false;
+        StopMoving();
     }
 
     public override void OnDespawn()
@@ -31,19 +31,20 @@ public class Player : Character
         }
         if (Input.GetMouseButtonUp(0))
         {
-            StopMoVing();
+            StopMoving();
         }
     }
     private void Moving()
     {
         isMoving = true;
         rb.MovePosition(rb.position + JoystickControl.direct * speed * Time.deltaTime);
-        tf.position = rb.position;
-        tf.forward = JoystickControl.direct;
+        TF.position = rb.position;
+        TF.forward = JoystickControl.direct;
         ChangeAnim(Constant.ANIM_RUN);
     }
-    private void StopMoVing()
+    public override void StopMoving()
     {
+        base.StopMoving();
         isMoving = false;
         JoystickControl.direct = Vector3.zero;
         rb.velocity = Vector3.zero;
@@ -54,7 +55,7 @@ public class Player : Character
     {
         if (collision.collider.CompareTag(Constant.TAG_OBSTACLE))
         {
-            StopMoVing();
+            StopMoving();
         }
     }
 }
