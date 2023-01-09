@@ -7,8 +7,11 @@ public class LevelManager : MonoBehaviour
     [SerializeField] Level[] levels;
     [SerializeField] Player player;
     Level currentLevel;
-    List<Bot> bots = new List<Bot>();
 
+    public void Start()
+    {
+        LoadLevel(0);
+    }
     public void OnInit()
     {
 
@@ -18,21 +21,18 @@ public class LevelManager : MonoBehaviour
     {
 
     }
-    private void LoadLevel(Level newLevel)
+    private void LoadLevel(int index)
     {
-        if (currentLevel != newLevel)
+        if (currentLevel != levels[index] && currentLevel != null)
         {
+            currentLevel.OnDespawn();
             Destroy(currentLevel.gameObject);
         }
-        currentLevel = newLevel;
+        currentLevel = levels[index];
         if(currentLevel != null)
         {
             currentLevel = Instantiate(currentLevel);
+            currentLevel.OnInit();
         }
-    }
-
-    public void ClearBot()
-    {
-        bots.Clear();
     }
 }
