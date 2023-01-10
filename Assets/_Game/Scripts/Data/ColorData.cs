@@ -3,11 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public enum TypeColor
-{
-    Green, Cyan, Yellow, Red, Black, Orange, Blue
-}
-
 [CreateAssetMenu(fileName = "Color",menuName ="ScripttableObject/Color")]
 public class ColorData : ScriptableObject
 {

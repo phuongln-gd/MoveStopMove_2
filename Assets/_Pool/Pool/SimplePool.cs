@@ -332,5 +332,15 @@ public enum PoolType
 {
     None,
 
-    Bot
+    Bot,
+
+    Boomerang,
+    Uzi,
+    Candy_0,
+    Candy_1,
+    Candy_2,
+    Candy_3,
+    Knife,
+    Axe,
+    Hammer
 }
