@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &9207057987208753962
+--- !u!1 &1323089871228787869
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,9 +8,9 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 9207057987209244426}
-  - component: {fileID: 9207057987212144426}
-  - component: {fileID: 9207057987211013610}
+  - component: {fileID: 1323089871229010109}
+  - component: {fileID: 1323089871231877277}
+  - component: {fileID: 1323089871230779997}
   m_Layer: 0
   m_Name: Candy_3
   m_TagString: Untagged
@@ -18,35 +18,35 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &9207057987209244426
+--- !u!4 &1323089871229010109
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9207057987208753962}
-  m_LocalRotation: {x: 0.35288775, y: 0.49184388, z: -0.4640116, w: 0.6467248}
-  m_LocalPosition: {x: -0.135, y: -0.133, z: 0.047}
-  m_LocalScale: {x: 14.237483, y: 23.380486, z: 23.837742}
+  m_GameObject: {fileID: 1323089871228787869}
+  m_LocalRotation: {x: 0.33662176, y: 0.49870932, z: -0.5089626, w: 0.61557454}
+  m_LocalPosition: {x: -0.179, y: -0.12, z: 0.102}
+  m_LocalScale: {x: 18.14271, y: 29.793568, z: 30.376242}
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 8034077852418120147}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 65.907, y: 49.129, z: -38.307}
---- !u!33 &9207057987212144426
+  m_LocalEulerAnglesHint: {x: 67.232, y: 44.516, z: -48.726}
+--- !u!33 &1323089871231877277
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9207057987208753962}
+  m_GameObject: {fileID: 1323089871228787869}
   m_Mesh: {fileID: 4300000, guid: 37a28123e5e39f44fbff5daa106af161, type: 3}
---- !u!23 &9207057987211013610
+--- !u!23 &1323089871230779997
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9207057987208753962}
+  m_GameObject: {fileID: 1323089871228787869}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -83,3 +83,50 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &8858575830818354833
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8034077852418120147}
+  - component: {fileID: 7794447056561115009}
+  m_Layer: 0
+  m_Name: Candy_3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8034077852418120147
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8858575830818354833}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1323089871229010109}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7794447056561115009
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8858575830818354833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 327f262903678c84d897ea180e960af2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  poolType: 7
+  type: 7
+  rend: {fileID: 1323089871230779997}

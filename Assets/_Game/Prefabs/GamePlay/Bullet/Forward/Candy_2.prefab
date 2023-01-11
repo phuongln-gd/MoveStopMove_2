@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1375243068160693583
+--- !u!1 &2028870697041184045
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,46 +8,59 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 992008503615412399}
-  - component: {fileID: 2498988215776780926}
+  - component: {fileID: 2228454971561029774}
+  - component: {fileID: 6823136050653724346}
+  - component: {fileID: 4284713572060595234}
   m_Layer: 0
-  m_Name: Boomerang
+  m_Name: Candy_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &992008503615412399
+--- !u!4 &2228454971561029774
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1375243068160693583}
+  m_GameObject: {fileID: 2028870697041184045}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.01, y: 7.11, z: 3.46}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 968097013061452472}
+  - {fileID: 7282490162418122228}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2498988215776780926
+--- !u!65 &6823136050653724346
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2028870697041184045}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.6895879, y: 0.7198372, z: 1.6194935}
+  m_Center: {x: -0.01021114, y: 0.004131794, z: 0.16074705}
+--- !u!114 &4284713572060595234
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1375243068160693583}
+  m_GameObject: {fileID: 2028870697041184045}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 327f262903678c84d897ea180e960af2, type: 3}
+  m_Script: {fileID: 11500000, guid: befcbd508ea9262499271bcec871735f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  poolType: 2
-  rend: {fileID: 819701898072512926}
-  bulletType: 2
---- !u!1 &6179952965178597024
+  poolType: 15
+  speed: 6
+--- !u!1 &7282490162417951188
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -55,45 +68,45 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 968097013061452472}
-  - component: {fileID: 7132661658802990493}
-  - component: {fileID: 819701898072512926}
+  - component: {fileID: 7282490162418122228}
+  - component: {fileID: 7282490162414697940}
+  - component: {fileID: 7282490162415697684}
   m_Layer: 0
-  m_Name: Boomerang
+  m_Name: Candy_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &968097013061452472
+--- !u!4 &7282490162418122228
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6179952965178597024}
-  m_LocalRotation: {x: -0.53064835, y: 0.6153623, z: 0.40920755, w: 0.4150793}
-  m_LocalPosition: {x: -0.197, y: -0.015, z: 0.203}
-  m_LocalScale: {x: 7.9479547, y: 7.0493937, z: 14.046962}
+  m_GameObject: {fileID: 7282490162417951188}
+  m_LocalRotation: {x: -0.37669078, y: 0.60512835, z: -0.530242, w: 0.45909393}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 47.56215, y: 67.62313, z: 37.95019}
   m_Children: []
-  m_Father: {fileID: 992008503615412399}
+  m_Father: {fileID: 2228454971561029774}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -109.24, y: -13.434021, z: 108.017}
---- !u!33 &7132661658802990493
+  m_LocalEulerAnglesHint: {x: 17.209, y: 90.969, z: -80.729}
+--- !u!33 &7282490162414697940
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6179952965178597024}
-  m_Mesh: {fileID: 4300000, guid: cb6e597070ed41f4eb5cb9583c725959, type: 3}
---- !u!23 &819701898072512926
+  m_GameObject: {fileID: 7282490162417951188}
+  m_Mesh: {fileID: 4300000, guid: f45aa9b66c9c81a4cac7e66fe618e58f, type: 3}
+--- !u!23 &7282490162415697684
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6179952965178597024}
+  m_GameObject: {fileID: 7282490162417951188}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -106,7 +119,9 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6d4ac13a5856fb34c809202ab3475f7d, type: 2}
+  - {fileID: 2100000, guid: 9e57d21cbb252f146b1e1168135f229a, type: 2}
+  - {fileID: 2100000, guid: 9e57d21cbb252f146b1e1168135f229a, type: 2}
+  - {fileID: 2100000, guid: 9e57d21cbb252f146b1e1168135f229a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

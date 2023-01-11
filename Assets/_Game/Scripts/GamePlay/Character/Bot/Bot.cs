@@ -22,7 +22,7 @@ public class Bot : Character
     public override void OnInit()
     {
         base.OnInit();
-        skin.ChangeColorBody(Utilities.RandomEnumValue<TypeColor>());
+        RandomItem();
         bool t = Utilities.Chance(50, 100);
         if (t)
         {
@@ -32,7 +32,7 @@ public class Bot : Character
         {
             ChangeState(new PatronState());
         }
-        // StopMoving();
+        StopMoving();
     }
 
     public override void OnDespawn()
@@ -47,6 +47,18 @@ public class Bot : Character
         ChangeAnim(Constant.ANIM_IDLE);
     }
 
+    public void RandomItem()
+    {
+        skin.ChangeColorBody(Utilities.RandomEnumValue<TypeColor>());
+        ChangeWeapon();
+    }
+    public void ChangeWeapon()
+    {
+        skin.ChangeWeapon(Utilities.RandomEnumValue<TypeWeapon>());
+        //skin.CurrentWeapon.SetMeshRenderer
+          //  (GameManager.Instance.SkinWeaponData.GetMaterial(skin.CurrentWeapon.Type,
+            //Random.Range(0, GameManager.Instance.SkinWeaponData.GetSkinAmount(skin.CurrentWeapon.Type))));
+    }
     public bool IsDestination => Vector3.Distance(TF.position.x * Vector3.right + TF.position.z * Vector3.forward
         , destination.x * Vector3.right + destination.z * Vector3.forward) < 0.1f;
     public void SetDestination(Vector3 pos)

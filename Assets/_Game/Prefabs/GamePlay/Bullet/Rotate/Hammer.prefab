@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1375243068160693583
+--- !u!1 &7477589557398438915
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,46 +8,60 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 992008503615412399}
-  - component: {fileID: 2498988215776780926}
+  - component: {fileID: 2836556962499356564}
+  - component: {fileID: 613374011495830744}
+  - component: {fileID: -6136677231770991673}
   m_Layer: 0
-  m_Name: Boomerang
+  m_Name: Hammer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &992008503615412399
+--- !u!4 &2836556962499356564
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1375243068160693583}
+  m_GameObject: {fileID: 7477589557398438915}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 7.46, z: 1.64}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 968097013061452472}
+  - {fileID: 7872178891311639720}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2498988215776780926
+--- !u!65 &613374011495830744
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7477589557398438915}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.5093217, y: 0.9175768, z: 0.83481216}
+  m_Center: {x: -0.1263609, y: -0.07798576, z: -0.042961717}
+--- !u!114 &-6136677231770991673
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1375243068160693583}
+  m_GameObject: {fileID: 7477589557398438915}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 327f262903678c84d897ea180e960af2, type: 3}
+  m_Script: {fileID: 11500000, guid: a753c06d503786a409792d68becb1c04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  poolType: 2
-  rend: {fileID: 819701898072512926}
-  bulletType: 2
---- !u!1 &6179952965178597024
+  poolType: 19
+  speed: 6
+  child: {fileID: 7872178891311639720}
+--- !u!1 &7872178891311476872
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -55,45 +69,45 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 968097013061452472}
-  - component: {fileID: 7132661658802990493}
-  - component: {fileID: 819701898072512926}
+  - component: {fileID: 7872178891311639720}
+  - component: {fileID: 7872178891308215432}
+  - component: {fileID: 7872178891309215304}
   m_Layer: 0
-  m_Name: Boomerang
+  m_Name: Hammer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &968097013061452472
+--- !u!4 &7872178891311639720
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6179952965178597024}
-  m_LocalRotation: {x: -0.53064835, y: 0.6153623, z: 0.40920755, w: 0.4150793}
-  m_LocalPosition: {x: -0.197, y: -0.015, z: 0.203}
-  m_LocalScale: {x: 7.9479547, y: 7.0493937, z: 14.046962}
+  m_GameObject: {fileID: 7872178891311476872}
+  m_LocalRotation: {x: 0.18597756, y: 0.25603554, z: -0.5582803, w: 0.76692975}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 47.908237, y: 54.607033, z: 49.706165}
   m_Children: []
-  m_Father: {fileID: 992008503615412399}
+  m_Father: {fileID: 2836556962499356564}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -109.24, y: -13.434021, z: 108.017}
---- !u!33 &7132661658802990493
+  m_LocalEulerAnglesHint: {x: 34.83, y: 13.03, z: -68.002}
+--- !u!33 &7872178891308215432
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6179952965178597024}
-  m_Mesh: {fileID: 4300000, guid: cb6e597070ed41f4eb5cb9583c725959, type: 3}
---- !u!23 &819701898072512926
+  m_GameObject: {fileID: 7872178891311476872}
+  m_Mesh: {fileID: 4300000, guid: 90389cac50942cb4ca38583e6531094a, type: 3}
+--- !u!23 &7872178891309215304
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6179952965178597024}
+  m_GameObject: {fileID: 7872178891311476872}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -107,6 +121,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 6d4ac13a5856fb34c809202ab3475f7d, type: 2}
+  - {fileID: 2100000, guid: 27b8b5964453b7b41a184a9fb88b7237, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

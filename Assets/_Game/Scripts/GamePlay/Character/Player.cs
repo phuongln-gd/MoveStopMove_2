@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class Player : Character
@@ -6,6 +7,9 @@ public class Player : Character
     [SerializeField] LayerMask obstacleLayer;
 
     private bool isMoving;
+    CounterTime counterTime = new CounterTime();
+    public CounterTime CounterTime => counterTime;
+
     private void Start()
     {
         OnInit();
@@ -14,6 +18,7 @@ public class Player : Character
     {
         base.OnInit();
         StopMoving();
+        skin.ChangeWeapon(TypeWeapon.W_Knife);
     }
 
     public override void OnDespawn()
@@ -22,18 +27,38 @@ public class Player : Character
     }
     private void Update()
     {
-        if (Input.GetMouseButton(0))
+        if (!IsDead)
         {
-            if(JoystickControl.direct != Vector3.zero)
+            if (Input.GetMouseButtonDown(0))
+            {
+                counterTime.Cancel();
+            }
+            if (Input.GetMouseButton(0) && JoystickControl.direct != Vector3.zero)
             {
                 Moving();
             }
-        }
-        if (Input.GetMouseButtonUp(0))
-        {
-            StopMoving();
+            else
+            {
+                counterTime.Execute();
+            }
+            if (Input.GetMouseButtonUp(0))
+            {
+                StopMoving();
+                OnAttack();
+            }
         }
     }
+
+    public override void OnAttack()
+    {
+        base.OnAttack();
+        if(!isMoving && target != null && CanAttack)
+        {
+            counterTime.Start(Throw, TIME_DELAY_ATTACK);
+            ResetAnim();
+        }
+    }
+
     private void Moving()
     {
         isMoving = true;

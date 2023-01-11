@@ -334,13 +334,23 @@ public enum PoolType
 
     Bot,
 
-    Boomerang,
-    Uzi,
-    Candy_0,
-    Candy_1,
-    Candy_2,
-    Candy_3,
-    Knife,
-    Axe,
-    Hammer
+    W_Boomerang,
+    W_Uzi,
+    W_Candy_0,
+    W_Candy_1,
+    W_Candy_2,
+    W_Candy_3,
+    W_Knife,
+    W_Axe,
+    W_Hammer,
+
+    B_Boomerang,
+    B_Uzi,
+    B_Candy_0,
+    B_Candy_1,
+    B_Candy_2,
+    B_Candy_3,
+    B_Knife,
+    B_Axe,
+    B_Hammer
 }
