@@ -128,5 +128,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   poolType: 7
-  type: 7
   rend: {fileID: 1323089871230779997}
+  child: {fileID: 1323089871228787869}
+  typeBullet: 16

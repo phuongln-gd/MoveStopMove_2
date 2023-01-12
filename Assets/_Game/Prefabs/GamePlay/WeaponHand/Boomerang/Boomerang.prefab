@@ -46,7 +46,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   poolType: 2
   rend: {fileID: 819701898072512926}
-  bulletType: 2
+  child: {fileID: 6179952965178597024}
+  typeBullet: 11
 --- !u!1 &6179952965178597024
 GameObject:
   m_ObjectHideFlags: 0

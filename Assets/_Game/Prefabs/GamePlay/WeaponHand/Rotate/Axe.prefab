@@ -128,4 +128,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   poolType: 9
   rend: {fileID: 2591926998773012002}
-  bulletType: 1
+  child: {fileID: 2591926998775269602}
+  typeBullet: 18

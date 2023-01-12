@@ -11,10 +11,11 @@ public class LevelManager : Singleton<LevelManager>
     public void Start()
     {
         LoadLevel(0);
+        OnInit();
     }
     public void OnInit()
     {
-
+        player.OnInit();
     }
 
     public void OnDespawn()

@@ -8,11 +8,11 @@ public class BulletBoomerang : Bullet
     [SerializeField] Transform child;
     State currentState;
     private Vector3 target;
-    public override void OnInit(Character character, Vector3 target, float size)
+    public override void OnInit(Character character, Vector3 target)
     {
-        base.OnInit(character, target, size);
+        base.OnInit(character, target);
         this.target = (target - character.TF.position).normalized
-            * (Character.ATTACK_RANGE + 1) * size + character.TF.position;
+            * (Character.ATTACK_RANGE + 1)  + character.TF.position;
         currentState = State.forward;
     }
 

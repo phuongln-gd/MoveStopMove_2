@@ -5,7 +5,7 @@ using UnityEngine;
 public class Bullet : GameUnit
 {
     protected Character character;
-    [SerializeField] protected float speed = 6f;
+    [SerializeField] protected float speed = 9f;
     protected bool isRunning;
     public override void OnInit()
     {
@@ -15,7 +15,7 @@ public class Bullet : GameUnit
         SimplePool.Despawn(this);
     }
 
-    public virtual void OnInit(Character character,Vector3 target, float size)
+    public virtual void OnInit(Character character,Vector3 target)
     {
         this.character = character;
         TF.forward = (target - TF.position).normalized;
@@ -30,7 +30,8 @@ public class Bullet : GameUnit
     {
         if (other.CompareTag(Constant.TAG_CHARACTER))
         {
-            
+            Debug.Log("kill C");
+            OnDespawn();
         }
         if (other.CompareTag(Constant.TAG_OBSTACLE))
         {

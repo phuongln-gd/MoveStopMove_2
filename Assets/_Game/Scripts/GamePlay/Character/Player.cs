@@ -10,10 +10,7 @@ public class Player : Character
     CounterTime counterTime = new CounterTime();
     public CounterTime CounterTime => counterTime;
 
-    private void Start()
-    {
-        OnInit();
-    }
+    
     public override void OnInit()
     {
         base.OnInit();
@@ -44,6 +41,9 @@ public class Player : Character
             if (Input.GetMouseButtonUp(0))
             {
                 StopMoving();
+            }
+            if(!isMoving)
+            {
                 OnAttack();
             }
         }
@@ -52,10 +52,9 @@ public class Player : Character
     public override void OnAttack()
     {
         base.OnAttack();
-        if(!isMoving && target != null && CanAttack)
+        if (!isMoving && target != null && CanAttack)
         {
             counterTime.Start(Throw, TIME_DELAY_ATTACK);
-            ResetAnim();
         }
     }
 

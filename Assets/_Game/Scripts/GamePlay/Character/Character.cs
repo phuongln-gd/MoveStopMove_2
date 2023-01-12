@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Character : AbCharacter
 {
-    public static float TIME_DELAY_ATTACK = 0.4f;
+    public static float TIME_DELAY_ATTACK = 0.3f;
     public static float ATTACK_RANGE = 5f;
 
     [SerializeField] protected float speed;
@@ -20,7 +20,6 @@ public class Character : AbCharacter
 
     public bool CanAttack => skin.CurrentWeapon.IsCanAttack;
 
-    protected float size = 1f;
     public override void OnInit()
     {
         isDead = false;
@@ -42,24 +41,28 @@ public class Character : AbCharacter
 
     public void Throw()
     {
-        skin.CurrentWeapon.Throw(this,targetPosition,size);
+        skin.CurrentWeapon.Throw(this,targetPosition);
     }
 
     public override void OnAttack()
     {
-        target = null;
         target = FindTargetInRange();
         if(target!= null && !target.IsDead && CanAttack)
         {
             targetPosition = target.TF.position;
             TF.LookAt(targetPosition + (TF.position.y - target.TF.position.y) * Vector3.up);
-            ChangeAnim(Constant.AMIM_ATTACK);
+            ChangeAttackAnim();
         }
+    }
+
+    public void ChangeAttackAnim()
+    {
+        ChangeAnim(Constant.AMIM_ATTACK);
     }
 
     public void ResetAnim()
     {
-        currentAnim = "";
+        ChangeAnim("");
     }
     public virtual void AddTarget(Character target)
     {

@@ -8,9 +8,9 @@ public class BulletForward : Bullet
     public const float ALIVE_TIME = 1f;
     CounterTime counterTime = new CounterTime();
 
-    public override void OnInit(Character character, Vector3 target, float size)
+    public override void OnInit(Character character, Vector3 target)
     {
-        base.OnInit(character, target, size);
+        base.OnInit(character, target);
         counterTime.Start(OnDespawn, ALIVE_TIME);
     }
     private void Update()
