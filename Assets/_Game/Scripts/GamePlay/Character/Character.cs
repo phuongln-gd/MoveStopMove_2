@@ -2,8 +2,10 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+using static UnityEngine.GraphicsBuffer;
 
-public class Character : AbCharacter
+public class Character : AbCharacter,IHit
 {
     public static float TIME_DELAY_ATTACK = 0.3f;
     public static float ATTACK_RANGE = 5f;
@@ -35,8 +37,8 @@ public class Character : AbCharacter
 
     public override void OnDeath()
     {
-        isDead = true;
         ChangeAnim(Constant.ANIM_DEAD);
+        LevelManager.Instance.CharacterDeath(this);
     }
 
     public void Throw()
@@ -47,22 +49,17 @@ public class Character : AbCharacter
     public override void OnAttack()
     {
         target = FindTargetInRange();
-        if(target!= null && !target.IsDead && CanAttack)
+        if (target != null && CanAttack && !target.isDead)
         {
             targetPosition = target.TF.position;
-            TF.LookAt(targetPosition + (TF.position.y - target.TF.position.y) * Vector3.up);
-            ChangeAttackAnim();
+            TF.LookAt(targetPosition + (TF.position.y - targetPosition.y) * Vector3.up);
+            ChangeAnim(Constant.AMIM_ATTACK);
         }
-    }
-
-    public void ChangeAttackAnim()
-    {
-        ChangeAnim(Constant.AMIM_ATTACK);
     }
 
     public void ResetAnim()
     {
-        ChangeAnim("");
+        currentAnim = "";
     }
     public virtual void AddTarget(Character target)
     {
@@ -74,24 +71,25 @@ public class Character : AbCharacter
         targets.Remove(target);
         this.target = null;
     }
+
+    public void ClearTarget()
+    {
+        targets.Clear();
+    }
     private Character FindTargetInRange()
     {
-        Character rs = null;
+        Character character = null;
         float distance = float.PositiveInfinity;
-        for(int i =0; i < targets.Count; i++)
+        for(int i = 0; i< targets.Count; i++)
         {
-            if (targets[i] != null && !targets[i].IsDead
-                && Vector3.Distance(TF.position, targets[i].TF.position) < ATTACK_RANGE)
+            float dis = Vector3.Distance(TF.position, targets[i].TF.position);
+            if (targets[i] != null && targets[i] != this && !targets[i].isDead && dis < distance)
             {
-                float dis = Vector3.Distance(TF.position, targets[i].TF.position);
-                if(dis < distance)
-                {
-                    distance = dis;
-                    rs = targets[i];
-                }
+                distance = dis;
+                character = targets[i];
             }
         }
-        return rs;
+        return character;
     }
 
     public void ChangeAnim(string animName)
@@ -101,6 +99,19 @@ public class Character : AbCharacter
             skin.Anim.ResetTrigger(currentAnim);
             currentAnim = animName;
             skin.Anim.SetTrigger(currentAnim);
+        }
+    }
+
+    public void OnHit(UnityAction hitAction)
+    {
+        if (!isDead)
+        {
+            isDead = true;
+            if(hitAction != null)
+            {
+                hitAction.Invoke();
+            }
+            OnDeath();
         }
     }
 }

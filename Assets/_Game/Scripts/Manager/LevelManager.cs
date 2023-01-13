@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -35,5 +36,10 @@ public class LevelManager : Singleton<LevelManager>
             currentLevel = Instantiate(currentLevel);
             currentLevel.OnInit();
         }
+    }
+
+    internal void CharacterDeath(Character character)
+    {
+        throw new NotImplementedException();
     }
 }

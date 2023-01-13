@@ -8,8 +8,8 @@ public class Bot : Character
     private IState<Bot> currentState;
     [SerializeField] NavMeshAgent agent;
 
-    private CounterTime counterTime = new CounterTime();
-    public CounterTime CounterTime => counterTime;
+    private CounterTime delayTime = new CounterTime();
+    public CounterTime DelayTime => delayTime;
 
     private Vector3 destination;
     private void Update()

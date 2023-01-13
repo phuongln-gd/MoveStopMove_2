@@ -13,15 +13,6 @@ public class Skin : GameUnit
 
     Weapon currentWeapon;
     public Weapon CurrentWeapon => currentWeapon;
-    public override void OnInit()
-    {
-
-    }
-
-    public override void OnDespawn()
-    {
-
-    }
 
     public void ChangeWeapon(TypeWeapon newWeapon)
     {

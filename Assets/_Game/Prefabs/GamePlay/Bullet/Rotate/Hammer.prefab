@@ -44,8 +44,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.5093217, y: 0.9175768, z: 0.83481216}
-  m_Center: {x: -0.1263609, y: -0.07798576, z: -0.042961717}
+  m_Size: {x: 0.8766471, y: 0.52493954, z: 1.6124747}
+  m_Center: {x: -0.0011441112, y: -0.021098137, z: 0.05589366}
 --- !u!114 &-6136677231770991673
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -61,6 +61,7 @@ MonoBehaviour:
   poolType: 19
   speed: 10
   child: {fileID: 7872178891311639720}
+  weapon: {fileID: 214770872519300054, guid: 435203f5b88b543489c237c767f6a9e4, type: 3}
 --- !u!1 &7872178891311476872
 GameObject:
   m_ObjectHideFlags: 0
@@ -86,13 +87,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7872178891311476872}
-  m_LocalRotation: {x: 0.18597756, y: 0.25603554, z: -0.5582803, w: 0.76692975}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 47.908237, y: 54.607033, z: 49.706165}
   m_Children: []
   m_Father: {fileID: 2836556962499356564}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 34.83, y: 13.03, z: -68.002}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!33 &7872178891308215432
 MeshFilter:
   m_ObjectHideFlags: 0

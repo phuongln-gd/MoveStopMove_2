@@ -25,13 +25,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5596397560506963631}
-  m_LocalRotation: {x: 0.5784585, y: 0.4187512, z: -0.4512599, w: 0.53516144}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 49.1061, y: 48.7271, z: 45.982323}
   m_Children: []
   m_Father: {fileID: 8216271565333742941}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 94.388, y: 74.899, z: -1.0980225}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!33 &5596397560505993903
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -126,8 +126,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.4301382, y: 0.48604965, z: 1}
-  m_Center: {x: -0.0353238, y: 0.007935524, z: 0}
+  m_Size: {x: 0.8774766, y: 0.48604965, z: 1.3991446}
+  m_Center: {x: -0.059886575, y: 0.007935524, z: 0.058336496}
 --- !u!114 &8327250237424010074
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -143,3 +143,4 @@ MonoBehaviour:
   poolType: 18
   speed: 6
   child: {fileID: 5596397560507320975}
+  weapon: {fileID: 5178155743614876865, guid: b858f6595c7265b4095759a302d8468b, type: 3}

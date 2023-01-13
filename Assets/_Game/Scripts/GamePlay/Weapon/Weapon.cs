@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class Weapon : GameUnit
@@ -18,27 +19,18 @@ public class Weapon : GameUnit
 
     [SerializeField] TypeBullet typeBullet ;
 
-    public override void OnInit()
-    {
-
-    }
-    public override void OnDespawn()
-    {
-
-    }
-    
     public void Throw(Character character, Vector3 targetPoint)
     {
         child.SetActive(false);
-        Invoke(nameof(SetEnable), ATTACK_DELAY_TIME);
-        Bullet bullet = SimplePool.Spawn<Bullet>((PoolType)typeBullet, TF.position, Quaternion.identity);
-        bullet.OnInit(character,targetPoint);
+        Bullet bullet = SimplePool.Spawn<Bullet>((PoolType)typeBullet, TF.position,TF.rotation);
+        bullet.OnInit(character,targetPoint,this);
         bullet.TF.localScale = Vector3.one;
     }
-    
+
     public void SetEnable()
     {
         child.SetActive(true);
+        LevelManager.Instance.player.IsAttacking = false;
     }
     public void SetMeshRenderer(Material newMaterial)
     {

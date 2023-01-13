@@ -130,3 +130,4 @@ MonoBehaviour:
   rend: {fileID: 1504835580140835509}
   child: {fileID: 1504835580138835061}
   typeBullet: 17
+  knifePrefab: {fileID: -337005946023575602, guid: ec423033fbbbc3f46b93c7b6251ed9fd, type: 3}

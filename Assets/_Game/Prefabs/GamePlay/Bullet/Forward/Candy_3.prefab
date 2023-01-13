@@ -25,13 +25,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4148769881240098383}
-  m_LocalRotation: {x: -0.090988524, y: 0.67174447, z: -0.7216276, w: 0.14047788}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 23.044197, y: 37.84268, z: 38.582775}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: -0.0643}
+  m_LocalScale: {x: 50, y: 50, z: 50}
   m_Children: []
   m_Father: {fileID: 4949786110484189953}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 70.723, y: 75.804, z: -100.128}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!33 &4148769881238800975
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -127,8 +127,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.6361211, y: 0.49239254, z: 1.3001478}
-  m_Center: {x: -0.014859527, y: 0.030306816, z: 0.15007389}
+  m_Size: {x: 0.91977024, y: 0.38837957, z: 1.6862383}
+  m_Center: {x: 0.0028309226, y: 0.032954454, z: 0.21042848}
 --- !u!114 &3615861077715516941
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -143,3 +143,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   poolType: 16
   speed: 6
+  child: {fileID: 4148769881239603823}
+  weapon: {fileID: 7794447056561115009, guid: ecdb065da9fce4d41b0b5233a6d01d67, type: 3}

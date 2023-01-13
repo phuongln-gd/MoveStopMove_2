@@ -6,16 +6,21 @@ public class Player : Character
     [SerializeField] Rigidbody rb;
     [SerializeField] LayerMask obstacleLayer;
 
-    private bool isMoving;
-    CounterTime counterTime = new CounterTime();
-    public CounterTime CounterTime => counterTime;
+    private bool isMoving,isAttacking;
+    public bool IsAttacking
+    {
+        get { return isAttacking; }
+        set { isAttacking = value; }
+    }
+    CounterTime delayTime = new CounterTime();
+    public CounterTime DelayTime => delayTime;
 
-    
     public override void OnInit()
     {
         base.OnInit();
         StopMoving();
         skin.ChangeWeapon(TypeWeapon.W_Knife);
+        isAttacking = false;
     }
 
     public override void OnDespawn()
@@ -28,7 +33,7 @@ public class Player : Character
         {
             if (Input.GetMouseButtonDown(0))
             {
-                counterTime.Cancel();
+                delayTime.Cancel();
             }
             if (Input.GetMouseButton(0) && JoystickControl.direct != Vector3.zero)
             {
@@ -36,15 +41,18 @@ public class Player : Character
             }
             else
             {
-                counterTime.Execute();
+                delayTime.Execute();
             }
             if (Input.GetMouseButtonUp(0))
             {
                 StopMoving();
             }
-            if(!isMoving)
+            if(!isMoving && CanAttack)
             {
-                OnAttack();
+                if (!isAttacking)
+                {
+                    OnAttack();
+                }
             }
         }
     }
@@ -52,14 +60,17 @@ public class Player : Character
     public override void OnAttack()
     {
         base.OnAttack();
-        if (!isMoving && target != null && CanAttack)
+        ResetAnim();
+        if(target != null && CanAttack)
         {
-            counterTime.Start(Throw, TIME_DELAY_ATTACK);
+            isAttacking = true;
+            delayTime.Start(Throw, TIME_DELAY_ATTACK);
         }
     }
 
     private void Moving()
     {
+        IsAttacking = false;
         isMoving = true;
         rb.MovePosition(rb.position + JoystickControl.direct * speed * Time.deltaTime);
         TF.position = rb.position;

@@ -7,17 +7,18 @@ public class Bullet : GameUnit
     protected Character character;
     [SerializeField] protected float speed = 9f;
     protected bool isRunning;
-    public override void OnInit()
-    {
-    }
-    public override void OnDespawn()
+    [SerializeField] protected Transform child;
+    protected Weapon weapon;
+    public virtual void OnDespawn()
     {
         SimplePool.Despawn(this);
+        weapon.SetEnable();
     }
 
-    public virtual void OnInit(Character character,Vector3 target)
+    public virtual void OnInit(Character character,Vector3 target,Weapon weapon)
     {
         this.character = character;
+        this.weapon = weapon;
         TF.forward = (target - TF.position).normalized;
         isRunning = true;
     }
@@ -28,14 +29,13 @@ public class Bullet : GameUnit
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag(Constant.TAG_CHARACTER))
-        {
-            Debug.Log("kill C");
-            OnDespawn();
-        }
-        if (other.CompareTag(Constant.TAG_OBSTACLE))
+        /*if (other.CompareTag(Constant.TAG_OBSTACLE))
         {
             OnStop();
         }
+        if (other.CompareTag(Constant.TAG_CHARACTER))
+        {
+
+        }*/
     }
 }

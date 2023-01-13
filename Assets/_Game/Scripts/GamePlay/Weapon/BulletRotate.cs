@@ -5,12 +5,11 @@ using UnityEngine;
 public class BulletRotate : Bullet
 {
     public const float ALIVE_TIME = 1f;
-    [SerializeField] Transform child;
     CounterTime counterTime = new CounterTime();
 
-    public override void OnInit(Character character, Vector3 target)
+    public override void OnInit(Character character, Vector3 target, Weapon weapon)
     {
-        base.OnInit(character, target);
+        base.OnInit(character, target, weapon);
         TF.forward = (target - TF.position).normalized;
         counterTime.Start(OnDespawn, ALIVE_TIME);
     }
@@ -21,7 +20,7 @@ public class BulletRotate : Bullet
         if (isRunning)
         {
             TF.Translate(TF.forward * speed * Time.deltaTime, Space.World);
-            child.Rotate(Vector3.up * -6f, Space.Self);
+            child.RotateAround(child.position, Vector3.up, 540 * Time.deltaTime);
         }
     }
 
