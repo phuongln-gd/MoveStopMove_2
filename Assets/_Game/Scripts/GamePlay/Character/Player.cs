@@ -5,6 +5,7 @@ public class Player : Character
 {
     [SerializeField] Rigidbody rb;
     [SerializeField] LayerMask obstacleLayer;
+    public Mask currentMask;
 
     private bool isMoving,isAttacking;
     public bool IsAttacking
@@ -21,6 +22,7 @@ public class Player : Character
         StopMoving();
         skin.ChangeWeapon(TypeWeapon.W_Knife);
         isAttacking = false;
+        currentMask = null;
     }
 
     public override void OnDespawn()

@@ -12,6 +12,9 @@ public class Bot : Character
     public CounterTime DelayTime => delayTime;
 
     private Vector3 destination;
+    [SerializeField] Mask mask;
+
+    public Mask MaskBot => mask;
     private void Update()
     {
         if (currentState != null)
@@ -33,6 +36,7 @@ public class Bot : Character
             ChangeState(new PatronState());
         }
         StopMoving();
+        mask.SetEnable(false);
     }
 
     public override void OnDespawn()

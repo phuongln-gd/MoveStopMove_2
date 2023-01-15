@@ -14,4 +14,15 @@ public static class Cache
         }
         return characters[collider];
     }
+
+    /*private static Dictionary<Mask, Character> maskCharacters = new Dictionary<Mask, Character>();
+
+    public static Character GetCharacterFromMask(Mask mask)
+    {
+        if (!maskCharacters.ContainsKey(mask))
+        {
+            maskCharacters.Add(mask, mask.GetComponent<Character>());
+        }
+        return maskCharacters[mask];
+    }*/
 }

@@ -17,6 +17,7 @@ public class Character : AbCharacter,IHit
     public bool IsDead => isDead;
 
     private List<Character> targets = new List<Character>();
+    public List<Character> Targets => targets;
     protected Character target;
     private Vector3 targetPosition;
 
@@ -76,7 +77,7 @@ public class Character : AbCharacter,IHit
     {
         targets.Clear();
     }
-    private Character FindTargetInRange()
+    public Character FindTargetInRange()
     {
         Character character = null;
         float distance = float.PositiveInfinity;
