@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 7341913301822353714}
   m_Layer: 0
   m_Name: Uzi
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -141,6 +141,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   poolType: 12
-  speed: 6
+  speed: 8
   child: {fileID: 2794485726752693999}
-  weapon: {fileID: 4371084436267918476, guid: 28cb5675b6263734e894cd590b43e2b6, type: 3}

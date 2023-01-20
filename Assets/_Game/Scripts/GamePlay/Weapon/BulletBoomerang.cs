@@ -44,6 +44,6 @@ public class BulletBoomerang : Bullet
     {
         base.OnStop();
         currentState = State.Stop;
-        Invoke(nameof(OnDespawn), 1.5f);
+        Invoke(nameof(OnDespawn), 0.5f);
     }
 }

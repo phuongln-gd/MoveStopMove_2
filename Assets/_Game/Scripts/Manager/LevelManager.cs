@@ -38,8 +38,15 @@ public class LevelManager : Singleton<LevelManager>
         }
     }
 
-    internal void CharacterDeath(Character character)
+    internal void CharacterDeath(Character c)
     {
-        throw new NotImplementedException();
+        if(c is Player)
+        {
+
+        }
+        else if (c is Bot)
+        {
+            currentLevel.Bots.Remove((Bot)c);
+        }
     }
 }

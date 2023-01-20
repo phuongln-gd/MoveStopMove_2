@@ -13,6 +13,8 @@ public class Constant
     public static string ANIM_DEAD = "dead";
 
     public static string TAG_OBSTACLE = "Obstacle";
+    public static string TAG_BULLET = "Bullet";
+    public static string TAG_WALL = "Wall";
     public static string TAG_CHARACTER = "Character";
 }
 

@@ -18,7 +18,16 @@ public class Weapon : GameUnit
     }
 
     [SerializeField] TypeBullet typeBullet ;
+    CounterTime counterTime = new CounterTime();
 
+    private void Update()
+    {
+        counterTime.Execute();
+    }
+    public void ResetAttack()
+    {
+        counterTime.Start(() => SetEnable(), 0.75f);
+    }
     public void Throw(Character character, Vector3 targetPoint)
     {
         child.SetActive(false);

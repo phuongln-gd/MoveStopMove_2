@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4284713572060595234}
   m_Layer: 0
   m_Name: Candy_2
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -61,7 +61,6 @@ MonoBehaviour:
   poolType: 15
   speed: 6
   child: {fileID: 7282490162418122228}
-  weapon: {fileID: 6953378330741365171, guid: 59bf248b18088e04e82b185ea426ab81, type: 3}
 --- !u!1 &7282490162417951188
 GameObject:
   m_ObjectHideFlags: 0

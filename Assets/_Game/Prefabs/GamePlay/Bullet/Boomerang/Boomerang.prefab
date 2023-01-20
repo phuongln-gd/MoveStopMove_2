@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 1205071909256242739}
   m_Layer: 0
   m_Name: Boomerang
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -140,6 +140,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   poolType: 11
-  speed: 6
+  speed: 8
   child: {fileID: 5044815152539537969}
-  weapon: {fileID: 2498988215776780926, guid: 2f80b755e06c98d449c9b1671f5dba7a, type: 3}

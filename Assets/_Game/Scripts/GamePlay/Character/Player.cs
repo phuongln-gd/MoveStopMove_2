@@ -59,6 +59,11 @@ public class Player : Character
         }
     }
 
+    public override void OnDeath()
+    {
+        base.OnDeath();
+    }
+
     public override void OnAttack()
     {
         base.OnAttack();
@@ -90,9 +95,19 @@ public class Player : Character
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.collider.CompareTag(Constant.TAG_OBSTACLE))
+        if (collision.collider.CompareTag(Constant.TAG_OBSTACLE)|| collision.collider.CompareTag(Constant.TAG_WALL))
         {
             StopMoving();
         }
+    }
+
+    public void SetMask(Mask maskTarget)
+    {
+        if(currentMask != null)
+        {
+            currentMask.SetEnable(false);
+        }
+        this.currentMask = maskTarget;
+        currentMask.SetEnable(true);
     }
 }

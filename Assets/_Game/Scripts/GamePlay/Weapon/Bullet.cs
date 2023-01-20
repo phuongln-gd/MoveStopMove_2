@@ -9,13 +9,14 @@ public class Bullet : GameUnit
     protected bool isRunning;
     [SerializeField] protected Transform child;
     protected Weapon weapon;
+
     public virtual void OnDespawn()
     {
         SimplePool.Despawn(this);
-        weapon.SetEnable();
+        weapon.ResetAttack();
     }
 
-    public virtual void OnInit(Character character,Vector3 target,Weapon weapon)
+    public virtual void OnInit(Character character, Vector3 target, Weapon weapon)
     {
         this.character = character;
         this.weapon = weapon;
@@ -27,15 +28,23 @@ public class Bullet : GameUnit
 
     }
 
+    public void StopBullet()
+    {
+        OnStop();
+    }
+
     private void OnTriggerEnter(Collider other)
     {
-        /*if (other.CompareTag(Constant.TAG_OBSTACLE))
-        {
-            OnStop();
-        }
         if (other.CompareTag(Constant.TAG_CHARACTER))
         {
-
-        }*/
+            IHit hit =  Cache.GetHit(other);
+            if (hit != null && hit != (IHit)character)
+            {
+                hit.OnHit(() =>
+                {
+                    OnDespawn();
+                });
+            }
+        }
     }
 }

@@ -16,6 +16,8 @@ public class Level : MonoBehaviour
 
     List<Bot> bots = new List<Bot>();
 
+    public List<Bot> Bots => bots;
+
     private int CurrentBot => bots.Count;
 
     private void Update()

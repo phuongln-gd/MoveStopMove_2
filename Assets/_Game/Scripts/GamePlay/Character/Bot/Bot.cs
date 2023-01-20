@@ -17,7 +17,7 @@ public class Bot : Character
     public Mask MaskBot => mask;
     private void Update()
     {
-        if (currentState != null)
+        if (currentState != null && !IsDead)
         {
             currentState.OnExecute(this);
         }
@@ -36,12 +36,22 @@ public class Bot : Character
             ChangeState(new PatronState());
         }
         StopMoving();
-        mask.SetEnable(false);
+        SetMask(false);
     }
 
+    public override void OnDeath()
+    {
+        ChangeState(null);
+        StopMoving();
+        base.OnDeath();
+        SetMask(false);
+        Invoke(nameof(OnDespawn), 1.5f);
+    }
     public override void OnDespawn()
     {
         base.OnDespawn();
+        SimplePool.Despawn(this);
+        CancelInvoke();
     }
 
     public override void StopMoving()
@@ -51,6 +61,10 @@ public class Bot : Character
         ChangeAnim(Constant.ANIM_IDLE);
     }
 
+    public void SetMask(bool flag)
+    {
+        mask.SetEnable(flag);
+    }
     public void RandomItem()
     {
         skin.ChangeColorBody(Utilities.RandomEnumValue<TypeColor>());

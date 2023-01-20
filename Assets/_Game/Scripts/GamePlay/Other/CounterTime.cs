@@ -31,7 +31,7 @@ public class CounterTime
 
     public void Exit()
     {
-        action?.Invoke(); 
+        action?.Invoke();
     }
 
     public void Cancel()

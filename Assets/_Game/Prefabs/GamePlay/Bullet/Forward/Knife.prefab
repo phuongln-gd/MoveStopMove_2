@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: -337005946023575602}
   m_Layer: 0
   m_Name: Knife
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -143,4 +143,3 @@ MonoBehaviour:
   poolType: 17
   speed: 10
   child: {fileID: 4391578651786433146}
-  weapon: {fileID: 1482708996081546560, guid: 64b2e2b2280d9e24baa0ebf5770b23eb, type: 3}

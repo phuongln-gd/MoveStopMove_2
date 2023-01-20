@@ -4,6 +4,17 @@ using UnityEngine;
 
 public static class Cache 
 {
+    private static Dictionary<Collider, IHit> hits = new Dictionary<Collider, IHit>();
+
+    public static IHit GetHit(Collider collider)
+    {
+        if (!hits.ContainsKey(collider))
+        {
+            hits.Add(collider, collider.GetComponent<IHit>());
+        }
+        return hits[collider];
+    }
+
     private static Dictionary<Collider, Character> characters = new Dictionary<Collider, Character>();
 
     public static Character GetCharacter(Collider collider)
@@ -15,7 +26,18 @@ public static class Cache
         return characters[collider];
     }
 
-    /*private static Dictionary<Mask, Character> maskCharacters = new Dictionary<Mask, Character>();
+    private static Dictionary<Collider, Bullet> bullets = new Dictionary<Collider, Bullet>();
+
+    public static Bullet GetBullet(Collider collider)
+    {
+        if (!bullets.ContainsKey(collider))
+        {
+            bullets.Add(collider, collider.GetComponent<Bullet>());
+        }
+        return bullets[collider];
+    }
+
+    private static Dictionary<Mask, Character> maskCharacters = new Dictionary<Mask, Character>();
 
     public static Character GetCharacterFromMask(Mask mask)
     {
@@ -24,5 +46,5 @@ public static class Cache
             maskCharacters.Add(mask, mask.GetComponent<Character>());
         }
         return maskCharacters[mask];
-    }*/
+    }
 }

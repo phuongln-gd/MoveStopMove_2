@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: -6136677231770991673}
   m_Layer: 0
   m_Name: Hammer
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -61,7 +61,6 @@ MonoBehaviour:
   poolType: 19
   speed: 10
   child: {fileID: 7872178891311639720}
-  weapon: {fileID: 214770872519300054, guid: 435203f5b88b543489c237c767f6a9e4, type: 3}
 --- !u!1 &7872178891311476872
 GameObject:
   m_ObjectHideFlags: 0

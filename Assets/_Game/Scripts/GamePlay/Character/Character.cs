@@ -21,6 +21,8 @@ public class Character : AbCharacter,IHit
     protected Character target;
     private Vector3 targetPosition;
 
+    [SerializeField] Transform weakPoint;
+    public Transform WeakPoint => weakPoint;
     public bool CanAttack => skin.CurrentWeapon.IsCanAttack;
 
     public override void OnInit()
@@ -52,8 +54,8 @@ public class Character : AbCharacter,IHit
         target = FindTargetInRange();
         if (target != null && CanAttack && !target.isDead)
         {
-            targetPosition = target.TF.position;
-            TF.LookAt(targetPosition + (TF.position.y - targetPosition.y) * Vector3.up);
+            targetPosition = target.weakPoint.position;
+            TF.LookAt(target.TF.position + (TF.position.y - target.TF.position.y) * Vector3.up);
             ChangeAnim(Constant.AMIM_ATTACK);
         }
     }

@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 8327250237424010074}
   m_Layer: 0
   m_Name: Axe
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -143,4 +143,3 @@ MonoBehaviour:
   poolType: 18
   speed: 6
   child: {fileID: 5596397560507320975}
-  weapon: {fileID: 5178155743614876865, guid: b858f6595c7265b4095759a302d8468b, type: 3}
