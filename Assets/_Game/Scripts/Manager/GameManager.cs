@@ -6,6 +6,7 @@ public class GameManager : Singleton<GameManager>
 {
     public ColorData colorData;
     public SkinWeaponData SkinWeaponData;
+    public Camera GamePlayCamera;
     void Start()
     {
         

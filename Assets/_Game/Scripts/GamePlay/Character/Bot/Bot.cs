@@ -26,6 +26,7 @@ public class Bot : Character
     {
         base.OnInit();
         RandomItem();
+        score.SetColor(skin.ColorBody.material.color);
         bool t = Utilities.Chance(50, 100);
         if (t)
         {

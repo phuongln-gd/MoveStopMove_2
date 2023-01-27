@@ -19,6 +19,8 @@ public class Player : Character
     public override void OnInit()
     {
         base.OnInit();
+        score.SetColor(skin.ColorBody.material.color);
+        score_int = 1;
         StopMoving();
         skin.ChangeWeapon(TypeWeapon.W_Knife);
         isAttacking = false;

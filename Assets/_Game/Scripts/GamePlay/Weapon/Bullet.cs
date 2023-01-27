@@ -43,6 +43,7 @@ public class Bullet : GameUnit
                 hit.OnHit(() =>
                 {
                     OnDespawn();
+                    character.SetScore(1);
                 });
             }
         }

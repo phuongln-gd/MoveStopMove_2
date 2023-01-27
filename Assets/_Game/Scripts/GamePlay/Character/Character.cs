@@ -25,6 +25,8 @@ public class Character : AbCharacter,IHit
     public Transform WeakPoint => weakPoint;
     public bool CanAttack => skin.CurrentWeapon.IsCanAttack;
 
+    [SerializeField] protected Score score;
+    public int score_int = 1;
     public override void OnInit()
     {
         isDead = false;
@@ -58,6 +60,12 @@ public class Character : AbCharacter,IHit
             TF.LookAt(target.TF.position + (TF.position.y - target.TF.position.y) * Vector3.up);
             ChangeAnim(Constant.AMIM_ATTACK);
         }
+    }
+
+    public void SetScore(int newScore)
+    {
+        score_int += newScore;
+        score.SetScore(score_int);
     }
 
     public void ResetAnim()

@@ -696,8 +696,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da7968a277d6d0d41a18d99cbbe54fdb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalBot: 20
-  maxBot: 20
+  totalBot: 8
+  maxBot: 5
   spawnBot: 0
   minPoint: {fileID: 4717089326382687331}
   maxPoint: {fileID: 7122126759610659677}

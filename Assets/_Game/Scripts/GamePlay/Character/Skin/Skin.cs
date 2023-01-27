@@ -8,6 +8,7 @@ public class Skin : GameUnit
     public Animator Anim => anim;
 
     [SerializeField] SkinnedMeshRenderer colorBody;
+    public SkinnedMeshRenderer ColorBody => colorBody;
 
     [SerializeField] Transform weaponPosition;
 
