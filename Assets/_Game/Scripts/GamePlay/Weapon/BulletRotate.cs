@@ -7,9 +7,9 @@ public class BulletRotate : Bullet
     public const float ALIVE_TIME = 1f;
     CounterTime counterTime = new CounterTime();
 
-    public override void OnInit(Character character, Vector3 target, Weapon weapon)
+    public override void OnInit(Character character, Vector3 target, Weapon weapon, float size)
     {
-        base.OnInit(character, target, weapon);
+        base.OnInit(character, target, weapon, size);
         TF.forward = (target - TF.position).normalized;
         counterTime.Start(OnDespawn, ALIVE_TIME);
     }

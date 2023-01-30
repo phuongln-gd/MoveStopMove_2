@@ -25,6 +25,7 @@ public class Player : Character
         skin.ChangeWeapon(TypeWeapon.W_Knife);
         isAttacking = false;
         currentMask = null;
+        SetSize(MIN_SIZE);
     }
 
     public override void OnDespawn()
@@ -66,6 +67,15 @@ public class Player : Character
         base.OnDeath();
     }
 
+    public override void AddTarget(Character target)
+    {
+        base.AddTarget(target);
+    }
+
+    public override void RemoveTarget(Character target)
+    {
+        base.RemoveTarget(target);
+    }
     public override void OnAttack()
     {
         base.OnAttack();
@@ -109,7 +119,10 @@ public class Player : Character
         {
             currentMask.SetEnable(false);
         }
-        this.currentMask = maskTarget;
-        currentMask.SetEnable(true);
+        currentMask = maskTarget;
+        if (maskTarget != null)
+        {
+            currentMask.SetEnable(true);
+        }
     }
 }

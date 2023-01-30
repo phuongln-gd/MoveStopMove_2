@@ -7,9 +7,9 @@ public class BulletBoomerang : Bullet
     public enum State { forward, backward, Stop }
     State currentState;
     private Vector3 target;
-    public override void OnInit(Character character, Vector3 target, Weapon weapon)
+    public override void OnInit(Character character, Vector3 target, Weapon weapon, float size)
     {
-        base.OnInit(character, target,weapon);
+        base.OnInit(character, target,weapon,size);
         this.target = (target - character.TF.position).normalized
             * (Character.ATTACK_RANGE + 1)  + character.TF.position;
         currentState = State.forward;

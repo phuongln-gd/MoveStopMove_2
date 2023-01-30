@@ -28,12 +28,12 @@ public class Weapon : GameUnit
     {
         counterTime.Start(() => SetEnable(), 0.75f);
     }
-    public void Throw(Character character, Vector3 targetPoint)
+    public void Throw(Character character, Vector3 targetPoint, float size)
     {
         child.SetActive(false);
         Bullet bullet = SimplePool.Spawn<Bullet>((PoolType)typeBullet, TF.position,TF.rotation);
-        bullet.OnInit(character,targetPoint,this);
-        bullet.TF.localScale = Vector3.one;
+        bullet.OnInit(character,targetPoint,this,size);
+        bullet.TF.localScale = Vector3.one * size;
     }
 
     public void SetEnable()

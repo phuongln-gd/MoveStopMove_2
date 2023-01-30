@@ -15,6 +15,7 @@ public class Bot : Character
     [SerializeField] Mask mask;
 
     public Mask MaskBot => mask;
+
     private void Update()
     {
         if (currentState != null && !IsDead)
@@ -38,6 +39,7 @@ public class Bot : Character
         }
         StopMoving();
         SetMask(false);
+        GetComponent<Target>().TargetColor = skin.ColorBody.material.color;
     }
 
     public override void OnDeath()

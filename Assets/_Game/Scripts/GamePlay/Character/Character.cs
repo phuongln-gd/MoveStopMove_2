@@ -10,6 +10,9 @@ public class Character : AbCharacter,IHit
     public static float TIME_DELAY_ATTACK = 0.3f;
     public static float ATTACK_RANGE = 5f;
 
+    public static float MAX_SIZE = 4F;
+    public static float MIN_SIZE = 1F;
+
     [SerializeField] protected float speed;
     [SerializeField] protected Skin skin;
     private string currentAnim;
@@ -27,6 +30,9 @@ public class Character : AbCharacter,IHit
 
     [SerializeField] protected Score score;
     public int score_int = 1;
+    
+    protected float size = 1f;
+    public float Size => size;
     public override void OnInit()
     {
         isDead = false;
@@ -46,9 +52,16 @@ public class Character : AbCharacter,IHit
         LevelManager.Instance.CharacterDeath(this);
     }
 
+    public void SetSize(float newSize)
+    {
+        newSize = Mathf.Clamp(newSize, MIN_SIZE, MAX_SIZE);
+        size = newSize;
+        TF.localScale = size * Vector3.one;
+    }
+
     public void Throw()
     {
-        skin.CurrentWeapon.Throw(this,targetPosition);
+        skin.CurrentWeapon.Throw(this,targetPosition,size);
     }
 
     public override void OnAttack()
@@ -66,6 +79,7 @@ public class Character : AbCharacter,IHit
     {
         score_int += newScore;
         score.SetScore(score_int);
+        SetSize(1 + score_int * 0.1f);
     }
 
     public void ResetAnim()
@@ -94,10 +108,13 @@ public class Character : AbCharacter,IHit
         for(int i = 0; i< targets.Count; i++)
         {
             float dis = Vector3.Distance(TF.position, targets[i].TF.position);
-            if (targets[i] != null && targets[i] != this && !targets[i].isDead && dis < distance)
+            if (targets[i] != null && targets[i] != this && !targets[i].isDead && dis <= ATTACK_RANGE * size + targets[i].size)
             {
-                distance = dis;
-                character = targets[i];
+                if (dis < distance)
+                {
+                    distance = dis;
+                    character = targets[i];
+                }
             }
         }
         return character;

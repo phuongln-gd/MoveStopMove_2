@@ -16,7 +16,7 @@ public class Bullet : GameUnit
         weapon.ResetAttack();
     }
 
-    public virtual void OnInit(Character character, Vector3 target, Weapon weapon)
+    public virtual void OnInit(Character character, Vector3 target, Weapon weapon,float size)
     {
         this.character = character;
         this.weapon = weapon;
