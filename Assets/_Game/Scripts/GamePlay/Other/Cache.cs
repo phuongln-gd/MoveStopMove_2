@@ -4,6 +4,7 @@ using UnityEngine;
 
 public static class Cache 
 {
+
     private static Dictionary<Collider, IHit> hits = new Dictionary<Collider, IHit>();
 
     public static IHit GetHit(Collider collider)

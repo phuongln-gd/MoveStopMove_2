@@ -696,8 +696,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da7968a277d6d0d41a18d99cbbe54fdb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalBot: 8
-  maxBot: 5
+  totalBot: 10
+  maxBot: 8
   spawnBot: 0
   minPoint: {fileID: 4717089326382687331}
   maxPoint: {fileID: 7122126759610659677}
@@ -962,14 +962,6 @@ PrefabInstance:
     - target: {fileID: 2158770157658971346, guid: 8d4c1fa36f5722b4aa63b640faf29c73, type: 3}
       propertyPath: m_Name
       value: Cup_1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2158770157658971346, guid: 8d4c1fa36f5722b4aa63b640faf29c73, type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 3443970592369654844, guid: 8d4c1fa36f5722b4aa63b640faf29c73, type: 3}
-      propertyPath: m_Layer
-      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8d4c1fa36f5722b4aa63b640faf29c73, type: 3}

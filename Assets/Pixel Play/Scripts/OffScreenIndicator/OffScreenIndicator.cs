@@ -40,32 +40,29 @@ public class OffScreenIndicator : MonoBehaviour
     /// </summary>
     void DrawIndicators()
     {
-        for(int i = 0; i < targets.Count; i++)
+        foreach(Target target in targets)
         {
-            Vector3 screenPosition = OffScreenIndicatorCore.GetScreenPosition(mainCamera, targets[i].transform.position);
+            Vector3 screenPosition = OffScreenIndicatorCore.GetScreenPosition(mainCamera, target.transform.position);
             bool isTargetVisible = OffScreenIndicatorCore.IsTargetVisible(screenPosition);
+            float distanceFromCamera = target.NeedDistanceText ? target.GetDistanceFromCamera(mainCamera.transform.position) : float.MinValue;// Gets the target distance from the camera.
             Indicator indicator = null;
 
-            if(targets[i].NeedArrowIndicator)
+            if(target.NeedBoxIndicator && isTargetVisible)
             {
-                indicator = GetIndicator(ref targets[i].indicator, IndicatorType.ARROW); // Gets the arrow indicator from the pool.
-                if (!isTargetVisible)
-                {
-                    float angle = float.MinValue;
-                    OffScreenIndicatorCore.GetArrowIndicatorPositionAndAngle(ref screenPosition, ref angle, screenCentre, screenBounds);
-                    indicator.transform.rotation = Quaternion.Euler(0, 0, angle * Mathf.Rad2Deg); // Sets the rotation for the arrow indicator.
-                }
-                else
-                {
-                    if (indicator != null)
-                    {
-                        indicator.Activate(false);
-                    }
-                }
+                screenPosition.z = 0;
+                indicator = GetIndicator(ref target.indicator, IndicatorType.BOX); // Gets the box indicator from the pool.
+            }
+            else if(target.NeedArrowIndicator && !isTargetVisible)
+            {
+                float angle = float.MinValue;
+                OffScreenIndicatorCore.GetArrowIndicatorPositionAndAngle(ref screenPosition, ref angle, screenCentre, screenBounds);
+                indicator = GetIndicator(ref target.indicator, IndicatorType.ARROW); // Gets the arrow indicator from the pool.
+                indicator.transform.rotation = Quaternion.Euler(0, 0, angle * Mathf.Rad2Deg); // Sets the rotation for the arrow indicator.
             }
             if(indicator)
             {
-                indicator.SetImageColor(targets[i].TargetColor);// Sets the image color of the indicator.
+                indicator.SetImageColor(target.TargetColor);// Sets the image color of the indicator.
+                indicator.SetDistanceText(distanceFromCamera); //Set the distance text for the indicator.
                 indicator.transform.position = screenPosition; //Sets the position of the indicator on the screen.
                 indicator.SetTextRotation(Quaternion.identity); // Sets the rotation of the distance text of the indicator.
             }

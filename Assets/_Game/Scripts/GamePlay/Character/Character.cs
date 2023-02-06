@@ -15,6 +15,8 @@ public class Character : AbCharacter,IHit
 
     [SerializeField] protected float speed;
     [SerializeField] protected Skin skin;
+
+    public Skin SkinCharacter => skin;
     private string currentAnim;
     private bool isDead;
     public bool IsDead => isDead;

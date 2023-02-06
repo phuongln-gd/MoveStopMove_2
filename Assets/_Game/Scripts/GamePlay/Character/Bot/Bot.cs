@@ -39,7 +39,6 @@ public class Bot : Character
         }
         StopMoving();
         SetMask(false);
-        GetComponent<Target>().TargetColor = skin.ColorBody.material.color;
     }
 
     public override void OnDeath()

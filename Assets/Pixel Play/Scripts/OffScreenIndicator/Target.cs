@@ -34,11 +34,6 @@ public class Target : MonoBehaviour
         {
             return targetColor;
         }
-
-        set
-        {
-            targetColor = value;
-        }
     }
 
     /// <summary>

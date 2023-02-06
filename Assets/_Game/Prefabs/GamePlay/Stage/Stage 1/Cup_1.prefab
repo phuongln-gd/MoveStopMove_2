@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8367641040869756314}
   - component: {fileID: 7350892944795692446}
   - component: {fileID: 2289803224041432412}
-  m_Layer: 3
+  m_Layer: 7
   m_Name: Cup_1
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -159,6 +159,10 @@ PrefabInstance:
       value: child
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: c731764a7e3ce264c8a51958c7152778, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c731764a7e3ce264c8a51958c7152778, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -188,7 +192,7 @@ NavMeshObstacle:
   m_Enabled: 1
   serializedVersion: 3
   m_Shape: 1
-  m_Extents: {x: 0.125, y: 0.125, z: 0.125}
+  m_Extents: {x: 0.08, y: 0.1, z: 0.1}
   m_MoveThreshold: 0.1
   m_Carve: 0
   m_CarveOnlyStationary: 1

@@ -352,5 +352,5 @@ public enum PoolType
     B_Candy_3,
     B_Knife,
     B_Axe,
-    B_Hammer
+    B_Hammer,
 }
