@@ -47,17 +47,29 @@ public class OffScreenIndicator : MonoBehaviour
             float distanceFromCamera = target.NeedDistanceText ? target.GetDistanceFromCamera(mainCamera.transform.position) : float.MinValue;// Gets the target distance from the camera.
             Indicator indicator = null;
 
+            
             if(target.NeedBoxIndicator && isTargetVisible)
             {
                 screenPosition.z = 0;
                 indicator = GetIndicator(ref target.indicator, IndicatorType.BOX); // Gets the box indicator from the pool.
             }
-            else if(target.NeedArrowIndicator && !isTargetVisible)
+            else if(target.NeedArrowIndicator)
             {
-                float angle = float.MinValue;
-                OffScreenIndicatorCore.GetArrowIndicatorPositionAndAngle(ref screenPosition, ref angle, screenCentre, screenBounds);
-                indicator = GetIndicator(ref target.indicator, IndicatorType.ARROW); // Gets the arrow indicator from the pool.
-                indicator.transform.rotation = Quaternion.Euler(0, 0, angle * Mathf.Rad2Deg); // Sets the rotation for the arrow indicator.
+                if (!isTargetVisible)
+                {
+                    float angle = float.MinValue;
+                    OffScreenIndicatorCore.GetArrowIndicatorPositionAndAngle(ref screenPosition, ref angle, screenCentre, screenBounds);
+                    indicator = GetIndicator(ref target.indicator, IndicatorType.ARROW); // Gets the arrow indicator from the pool.
+                    indicator.transform.rotation = Quaternion.Euler(0, 0, angle * Mathf.Rad2Deg); // Sets the rotation for the arrow indicator.
+                    indicator.Activate(true);
+                }
+                else
+                {
+                    if(target.indicator != null)
+                    {
+                        target.indicator.Activate(false);
+                    }
+                }
             }
             if(indicator)
             {
@@ -116,7 +128,7 @@ public class OffScreenIndicator : MonoBehaviour
         else
         {
             indicator = type == IndicatorType.BOX ? BoxObjectPool.current.GetPooledObject() : ArrowObjectPool.current.GetPooledObject();
-            indicator.Activate(true); // Sets the indicator as active.
+            //indicator.Activate(true); // Sets the indicator as active.
         }
         return indicator;
     }
