@@ -59,6 +59,7 @@ public class Player : Character
                     OnAttack();
                 }
             }
+            FindMaskInRange();
         }
     }
 
@@ -87,6 +88,18 @@ public class Player : Character
         }
     }
 
+    public void FindMaskInRange()
+    {
+        Character targ = FindTargetInRange();
+        if (targ != null)
+        {
+            SetMask((targ as Bot).MaskBot);
+        }
+        else
+        {
+            SetMask(null);
+        }
+    }
     private void Moving()
     {
         IsAttacking = false;
