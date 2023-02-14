@@ -8,7 +8,8 @@ public class PatronState : IState<Bot>
     {
         Vector3 randPoint = LevelManager.Instance.CurrentLevel.RandomPoint();
         t.SetDestination(randPoint);
-        t.DelayTime.Start(() => t.ChangeState(new IdleState()), 3f);
+        t.IsMoving = true;
+        t.DelayTime.Start(() => t.ChangeState(new IdleState()), 2.5f);
     }
 
     public void OnExecute(Bot t)

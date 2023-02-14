@@ -40,6 +40,7 @@ public class Bot : Character
         StopMoving();
         SetMask(false);
         GetComponent<Target>().TargetColor = skin.ColorBody.material.color;
+        IsAttacking = false;
     }
 
     public override void OnDeath()
@@ -64,6 +65,15 @@ public class Bot : Character
         ChangeAnim(Constant.ANIM_IDLE);
     }
 
+    public override void OnAttack()
+    {
+        base.OnAttack();
+    }
+    public override void Throw()
+    {
+        base.Throw();
+       
+    }
     public void SetMask(bool flag)
     {
         mask.SetEnable(flag);

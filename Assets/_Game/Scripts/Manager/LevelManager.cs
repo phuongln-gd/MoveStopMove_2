@@ -42,11 +42,17 @@ public class LevelManager : Singleton<LevelManager>
     {
         if(c is Player)
         {
-
+            // finish game
+            Debug.Log("finish game");
         }
         else if (c is Bot)
         {
             currentLevel.Bots.Remove((Bot)c);
+            if (currentLevel.SpawnBot < currentLevel.TotalBot)
+            {
+                currentLevel.NewBot();
+            }
+
         }
     }
 }

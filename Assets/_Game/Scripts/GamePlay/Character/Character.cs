@@ -35,6 +35,19 @@ public class Character : AbCharacter,IHit
     
     protected float size = 1f;
     public float Size => size;
+
+    protected bool isMoving, isAttacking;
+
+    public bool IsAttacking
+    {
+        get { return isAttacking; }
+        set { isAttacking = value; }
+    }
+    public bool IsMoving
+    {
+        get { return isMoving; }
+        set { isMoving = value; }
+    }
     public override void OnInit()
     {
         isDead = false;
@@ -46,6 +59,7 @@ public class Character : AbCharacter,IHit
 
     public override void StopMoving()
     {
+        isMoving = false;
     }
 
     public override void OnDeath()
@@ -61,7 +75,7 @@ public class Character : AbCharacter,IHit
         TF.localScale = size * Vector3.one;
     }
 
-    public void Throw()
+    public virtual void Throw()
     {
         skin.CurrentWeapon.Throw(this,targetPosition,size);
     }
@@ -69,11 +83,12 @@ public class Character : AbCharacter,IHit
     public override void OnAttack()
     {
         target = FindTargetInRange();
-        if (target != null && CanAttack && !target.isDead)
+        if (target != null && CanAttack && !target.isDead && !isMoving)
         {
             targetPosition = target.weakPoint.position;
             TF.LookAt(target.TF.position + (TF.position.y - target.TF.position.y) * Vector3.up);
             ChangeAnim(Constant.AMIM_ATTACK);
+            Debug.Log("sfsafsa");
         }
     }
 
@@ -81,7 +96,7 @@ public class Character : AbCharacter,IHit
     {
         score_int += newScore;
         score.SetScore(score_int);
-        SetSize(1 + score_int * 0.1f);
+        SetSize(1 + score_int * 0.05f);
     }
 
     public void ResetAnim()

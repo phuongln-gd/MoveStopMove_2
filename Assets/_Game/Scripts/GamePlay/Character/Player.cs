@@ -7,12 +7,6 @@ public class Player : Character
     [SerializeField] LayerMask obstacleLayer;
     public Mask currentMask;
 
-    private bool isMoving,isAttacking;
-    public bool IsAttacking
-    {
-        get { return isAttacking; }
-        set { isAttacking = value; }
-    }
     CounterTime delayTime = new CounterTime();
     public CounterTime DelayTime => delayTime;
 
@@ -22,7 +16,7 @@ public class Player : Character
         score.SetColor(skin.ColorBody.material.color);
         score_int = 1;
         StopMoving();
-        skin.ChangeWeapon(TypeWeapon.W_Knife);
+        skin.ChangeWeapon(TypeWeapon.W_Boomerang);
         isAttacking = false;
         currentMask = null;
         SetSize(MIN_SIZE);
@@ -66,6 +60,10 @@ public class Player : Character
     public override void OnDeath()
     {
         base.OnDeath();
+        if (currentMask != null)
+        {
+            currentMask.SetEnable(false);
+        }
     }
 
     public override void AddTarget(Character target)
@@ -112,7 +110,6 @@ public class Player : Character
     public override void StopMoving()
     {
         base.StopMoving();
-        isMoving = false;
         JoystickControl.direct = Vector3.zero;
         rb.velocity = Vector3.zero;
         ChangeAnim(Constant.ANIM_IDLE);
